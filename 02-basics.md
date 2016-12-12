@@ -579,7 +579,7 @@ private:
 };
 ```
 
-The `ammo_remaining` function doesn't modify a `CyberRanger`'s state, so we mark it `const`.
+The `is_hungry` function doesn't modify a `CyberRanger`'s state, so we mark it `const`.
 
 ---
 # `const` functions
@@ -597,7 +597,7 @@ void feed_hungry_ranger(CyberRanger &ranger) {
 }
 ```
 
-The `ammo_remaining` function doesn't modify a `CyberRanger`'s state, so we mark it `const`.
+The `is_hungry` function doesn't modify a `CyberRanger`'s state, so we mark it `const`.
 ---
 
 # Inheritance

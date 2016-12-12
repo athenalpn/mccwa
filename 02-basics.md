@@ -496,6 +496,8 @@ void fun(double val, int val2) {
 # Destructors
 Destructors are special member functions that are called when an object's lifetime ends.
 
+Recall: Member objects are constructed before an owning object is constructed. Destructors are applied in the reverse order.
+
 The purpose of the destructor is to release resources that the object is responsible for. C++ destructors are amazing, and you should love them.
 
 Prepare to be amazed.

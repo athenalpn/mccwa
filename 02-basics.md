@@ -684,6 +684,50 @@ struct Patrol : public StationaryMission, public NonstationaryMission { };
 > > Moon Unit Zappa
 
 ---
+# Composition Example
+
+```cpp
+struct DumbLogger {
+  public info(const char[] x) {
+    printf("info: %s", x);
+  }
+}
+
+struct ConsoleFoo : public DumbLogger {
+  void do_stuff_and_log() {
+    info("Doing stuff");
+  }
+}
+
+struct Foo {
+  void do_stuff_and_log() {
+    log.info("Doing stuff");
+  }
+
+  Logger &log;
+}
+```
+
+---
+# Composition Example (continued)
+
+```cpp
+main() {
+  ConsoleLogger cl;
+  FileLogger fl;
+  
+  Foo f;
+  f.log = cl;
+  f.do_stuff_and_log();
+  
+  f.log = fl;
+  f.do_stuff_and_log();  
+}
+```
+
+This makes unit testing easier as well.
+
+---
 # namespaces
 
 Namespaces provide scope to the names of types, functions, variables, etc. inside.

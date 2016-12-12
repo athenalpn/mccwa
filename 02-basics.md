@@ -644,6 +644,15 @@ public:
 void do_stuff_and_log(const Logger &logger) {
   logger.info("Doing stuff");
 }
+
+main() {
+  ConsoleLogger cl;
+  do_stuff_and_log(cl);
+  
+  // After implementing a FileLogger:
+  //FileLogger fl;
+  //do_stuff_and_log(fl);
+}
 ```
 
 You can easily change the behavior of this function by implementing a new `Logger`.

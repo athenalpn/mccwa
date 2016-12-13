@@ -371,7 +371,7 @@ TEST_CASE("can transform a vector, with lambda capture", "[stl]") {
 	transform(numbers.begin(), numbers.end(), back_inserter(output),
 		[my_char](auto len) {
 		return string(len, my_char);
-	}
+	    }
 	);
 
 	REQUIRE(output == vector<string>({ "bbbb", "", "bb" }));

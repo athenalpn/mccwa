@@ -224,7 +224,7 @@ The stream object will be on the left-hand side of the operator.
 Files can be written to using streams.
 
 1. Create the `ofstream` with the filename.
-2. Check that the file was successfully open with `is_open`
+2. Check that the file was successfully opened with `is_open`
 3. Stream data into the `ofstream`
 4. Optional: clean up with `close`
 
@@ -243,7 +243,7 @@ if (file.is_open()) {
 Files can also be read from using streams.
 
 1. Create the `ifstream` with the filename.
-2. Check that the file was successfully open with `is_open`
+2. Check that the file was successfully opened with `is_open`
 3. Stream data from the `ifstream`
 4. Optional: clean up with `close`
 
@@ -482,8 +482,7 @@ vector<int> primes{ 0, 2, 3, 5, 7, 11, 13 };
 auto prime_iterator = primes.begin();
 *prime_iterator = 1;
 ++prime_iterator;
-REQUIRE(primes[0] == 1
-);
+REQUIRE(primes[0] == 1);
 REQUIRE(*prime_iterator == 2);
 ```
 ---
@@ -564,7 +563,7 @@ auto sum = accumulate(original.begin(), original.end(), 0);
 REQUIRE(sum == 6);
 ```
 
-_Note_: Requires a `InputIterator`.
+_Note_: Requires an `InputIterator`.
 ---
 # `erase`-`remove` idiom
 

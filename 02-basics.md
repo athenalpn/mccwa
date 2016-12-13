@@ -496,6 +496,8 @@ void fun(double val, int val2) {
 # Destructors
 Destructors are special member functions that are called when an object's lifetime ends.
 
+Recall: Member objects are constructed before an owning object is constructed. Destructors are applied in the reverse order.
+
 The purpose of the destructor is to release resources that the object is responsible for. C++ destructors are amazing, and you should love them.
 
 Prepare to be amazed.
@@ -579,7 +581,7 @@ private:
 };
 ```
 
-The `ammo_remaining` function doesn't modify a `CyberRanger`'s state, so we mark it `const`.
+The `is_hungry` function doesn't modify a `CyberRanger`'s state, so we mark it `const`.
 
 ---
 # `const` functions
@@ -597,7 +599,7 @@ void feed_hungry_ranger(CyberRanger &ranger) {
 }
 ```
 
-The `ammo_remaining` function doesn't modify a `CyberRanger`'s state, so we mark it `const`.
+The `is_hungry` function doesn't modify a `CyberRanger`'s state, so we mark it `const`.
 ---
 
 # Inheritance
@@ -644,6 +646,15 @@ public:
 void do_stuff_and_log(const Logger &logger) {
   logger.info("Doing stuff");
 }
+
+main() {
+  ConsoleLogger cl;
+  do_stuff_and_log(cl);
+  
+  // After implementing a FileLogger:
+  //FileLogger fl;
+  //do_stuff_and_log(fl);
+}
 ```
 
 You can easily change the behavior of this function by implementing a new `Logger`.
@@ -673,6 +684,50 @@ struct Patrol : public StationaryMission, public NonstationaryMission { };
 
 > It's like, barf me out. Gag me with a spoon!
 > > Moon Unit Zappa
+
+---
+# Composition Example
+
+```cpp
+struct DumbLogger {
+  public info(const char[] x) {
+    printf("info: %s", x);
+  }
+}
+
+struct ConsoleFoo : public DumbLogger {
+  void do_stuff_and_log() {
+    info("Doing stuff");
+  }
+}
+
+struct Foo {
+  void do_stuff_and_log() {
+    log.info("Doing stuff");
+  }
+
+  Logger &log;
+}
+```
+
+---
+# Composition Example (continued)
+
+```cpp
+main() {
+  ConsoleLogger cl;
+  FileLogger fl;
+  
+  Foo f;
+  f.log = cl;
+  f.do_stuff_and_log();
+  
+  f.log = fl;
+  f.do_stuff_and_log();  
+}
+```
+
+This makes unit testing easier as well.
 
 ---
 # namespaces

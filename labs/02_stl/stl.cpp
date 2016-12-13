@@ -282,14 +282,6 @@ TEST_CASE("remove shifts elements", "[stl]") {
 	REQUIRE(primes == vector<int>({ 1, 2, 3, 7, 11, 13, 13 }));
 }
 
-TEST_CASE("Accumulate adds elements", "[stl]") {
-	vector<int> original {1, 2, 3};
-
-	auto sum = accumulate(original.begin(), original.end(), 0);
-
-	REQUIRE(sum == 6);
-}
-
 TEST_CASE("remove returns new end", "[stl]") {
 	vector<int> primes{ 1, 2, 3, 5, 7, 11, 13 };
 

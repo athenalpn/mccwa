@@ -27,17 +27,37 @@ cleanup:
 }
 
 struct File {
-  File(const char *file_name, const char *mode) {
-    raw_file = fopen(file_name, mode);
-  }
-  ~File() {
-    fclose(raw_file);
-  }
-  void write(const char *input) const {
-    fprintf(raw_file, "%s", input);
-  }
+    File(const string &file_name, const string &mode) {
+        raw_file = fopen(file_name.c_str(), mode.c_str());
+        if (nullptr == raw_file) {
+            throw exception("Could not open file.");
+        }
+    }
+    ~File() {
+        if (raw_file != nullptr) {
+            fclose(raw_file);
+        }
+    }
+    // disable copy ctor and copy assignment ctor
+    File(const File&) = delete;
+    File& operator=(const File&) = delete;
+    // move ctor and move assignment ctor
+    File(File &&f) {
+        raw_file = f.raw_file;
+        f.raw_file = nullptr;
+    }
+    File& operator=(File &&f) {
+        if (raw_file != nullptr) {
+            fclose(raw_file);
+        }
+        raw_file = f.raw_file;
+        f.raw_file = nullptr;
+    }
+    void write(const string &input) {
+        fprintf(raw_file, "%s", input.c_str());
+    }
 private:
-  FILE *raw_file;
+    FILE *raw_file;
 };
 
 TEST_CASE("Can use RAII to manage objects", "[raii]") {
@@ -45,6 +65,27 @@ TEST_CASE("Can use RAII to manage objects", "[raii]") {
 	string buffer_to_write(1000, 'a');
 	buffer_to_write[999] = 0;
 	file.write(buffer_to_write.c_str());
+}
+
+TEST_CASE("copy ctors are disabled", "[raii]") {
+    File file("tmp.txt", "w");
+
+    // These won't compile:
+    //File copy1(file);      // b/c copy ctor was deleted
+    //File copy2 = file;     // b/c copy assignment ctor was deleted
+}
+
+TEST_CASE("move ctors work", "[raii]") {
+    File file("tmp.txt", "w");
+
+    // move constructor
+    File move1(File("tmp_move1.txt", "w"));
+    File move2(std::move(file));
+
+    // move assignment constructor
+    File file2("tmp_move2.txt", "w");
+    auto move3 = File("tmp_move3.txt", "w");
+    auto move4 = std::move(file2);
 }
 
 struct Resource {
@@ -120,4 +161,15 @@ TEST_CASE("Shared_ptrs can be copied", "[raii]") {
 	}
 	// Still acquired
 	REQUIRE(my_resource.is_acquired);
+}
+
+void remove_files() {
+    remove("tmp.txt");
+    remove("tmp_move1.txt");
+    remove("tmp_move2.txt");
+    remove("tmp_move3.txt");
+}
+
+TEST_CASE("cleanup the files we created", "[raii]") {
+    remove_files();
 }

@@ -94,7 +94,7 @@ do {
 
 C++ makes strong guarantees about when objects get destructed.
 
-By tying a class to a resource, you can make strong guarantees about when a resource is acquired/release.
+By tying a class to a resource, you can make strong guarantees about when a resource is acquired/released.
 
 Resource acquisition is initialization (of this class). This is the RAII paradigm.
 
@@ -363,7 +363,7 @@ Sometimes you want to share a resource with multiple consumers.
 Ideally, you would destruct this _smart pointer_ when all the consumers were done with it.
 ```cpp
 struct Consumer {
-	Consumer(shared_ptr<File> f);
+	Consumer(shared_ptr<File> f) : f(f) { }
 private:
 	shared_ptr<File> f;
 }

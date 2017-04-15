@@ -49,6 +49,7 @@ TEST_CASE("can append", "[stl]") {
 
 TEST_CASE("can access elements with operator[] and at", "[stl]") {
 	string advice("Don't panic");
+
 	REQUIRE('D' == advice[0]);
 	REQUIRE('t' == advice[4]);
 	REQUIRE('D' == advice.at(0));
@@ -168,6 +169,7 @@ TEST_CASE("map can emplace", "[stl]") {
 
 TEST_CASE("map can erase", "[stl]") {
 	map<string, string> commander;
+
 	commander.emplace("William Adama", "Galactica");
 	commander.erase("William Adama");
 
@@ -186,10 +188,12 @@ TEST_CASE("map can be accessed with operator[] and at", "[stl]") {
 // Demo 2
 TEST_CASE("Iterator example; assign, increment, retrieve", "[stl]") {
 	vector<int> primes{ 0, 2, 3, 5, 7, 11, 13 };
+
 	auto prime_iterator = primes.begin();
 	*prime_iterator = 1;
 	++prime_iterator;
-	REQUIRE(primes[0] == 1);
+	
+    REQUIRE(primes[0] == 1);
 	REQUIRE(*prime_iterator == 2);
 }
 
@@ -206,7 +210,6 @@ TEST_CASE("Can use iterators to loop over elements", "[stl]") {
 	REQUIRE(characters == 40);
 }
 
-
 TEST_CASE("vector can use range-based for to loop over elements", "[stl]") {
 	vector<int> primes{ 1, 2, 3, 5, 7, 11, 13 };
 	auto sum_of_primes = 0;
@@ -217,7 +220,6 @@ TEST_CASE("vector can use range-based for to loop over elements", "[stl]") {
 
 	REQUIRE(sum_of_primes == 42);
 }
-
 
 TEST_CASE("map can use range-based for to find elements", "[stl]") {
 	map<string, string> commander;
@@ -237,7 +239,6 @@ TEST_CASE("map can use range-based for to find elements", "[stl]") {
 	REQUIRE(found_galactica);
 	REQUIRE(found_enterprise);
 }
-
 
 TEST_CASE("Can assign to iterators", "[stl]") {
 	vector<string> commanders {"XXXXXXXXXX"};
@@ -280,14 +281,6 @@ TEST_CASE("remove shifts elements", "[stl]") {
 	auto new_end = std::remove(primes.begin(), primes.end(), 5);
 
 	REQUIRE(primes == vector<int>({ 1, 2, 3, 7, 11, 13, 13 }));
-}
-
-TEST_CASE("Accumulate adds elements", "[stl]") {
-	vector<int> original {1, 2, 3};
-
-	auto sum = accumulate(original.begin(), original.end(), 0);
-
-	REQUIRE(sum == 6);
 }
 
 TEST_CASE("remove returns new end", "[stl]") {
@@ -371,7 +364,6 @@ TEST_CASE("can transform a vector", "[stl]") {
 	REQUIRE(output == vector<string>({ "aaaa", "", "aa"}));
 }
 
-
 TEST_CASE("can transform a vector, with lambda capture", "[stl]") {
 	vector<int> numbers({ 4,0,2 });
 	vector<string> output;
@@ -380,12 +372,11 @@ TEST_CASE("can transform a vector, with lambda capture", "[stl]") {
 	transform(numbers.begin(), numbers.end(), back_inserter(output),
 		[my_char](auto len) {
 		return string(len, my_char);
-	}
+	    }
 	);
 
 	REQUIRE(output == vector<string>({ "bbbb", "", "bb" }));
 }
-
 
 TEST_CASE("can find_if", "[stl]") {
 	vector<int> numbers({2, 4, 5, 6});

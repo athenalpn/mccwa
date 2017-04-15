@@ -94,7 +94,7 @@ do {
 
 C++ makes strong guarantees about when objects get destructed.
 
-By tying a class to a resource, you can make strong guarantees about when a resource is acquired/release.
+By tying a class to a resource, you can make strong guarantees about when a resource is acquired/released.
 
 Resource acquisition is initialization (of this class). This is the RAII paradigm.
 
@@ -192,6 +192,7 @@ Up to now, this is the kind of constructor we've been dealing with.
 These constructors create new objects (with resources, think _newly acquired resource_).
 
 ```cpp
+# Default constructor
 Foo a();
 
 # Parameterized constructor

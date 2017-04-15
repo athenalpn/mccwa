@@ -363,7 +363,7 @@ Sometimes you want to share a resource with multiple consumers.
 Ideally, you would destruct this _smart pointer_ when all the consumers were done with it.
 ```cpp
 struct Consumer {
-	Consumer(shared_ptr<File> f);
+	Consumer(shared_ptr<File> f) : f(f) { }
 private:
 	shared_ptr<File> f;
 }

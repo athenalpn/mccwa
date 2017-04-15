@@ -350,16 +350,3 @@ void do_stuff() {
 	bar x;
 	mccwa::bas();
 }
-
-
-void bad(int *&x)
-{
-	x = (int*)malloc(100);
-}
-
-void call_it()
-{
-	int *my_new_x = nullptr;
-	bad(my_new_x);
-}
-

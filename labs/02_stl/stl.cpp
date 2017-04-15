@@ -9,17 +9,6 @@
 using namespace std;
 
 // Demo 1
-TEST_CASE("std::cout displays output", "[stl]") {
-	cout << "Hello, world #1" << endl;
-}
-
-TEST_CASE("std::cin takes input", "[stl]") {
-	string name;
-	cout << "What is your name?" << endl;
-	// cin >> name; // Hangs up the test when uncommented
-	cout << "Thanks, " << name << endl;
-}
-
 TEST_CASE("string has length", "[stl]") {
 	string advice("Don't panic");
 	string empty_string;
@@ -104,6 +93,18 @@ TEST_CASE("access with operator[] and at", "[stl]") {
 	REQUIRE(primes.at(1) == 2);
 }
 
+TEST_CASE("std::cout displays output", "[stl]") {
+	cout << "Hello, world #1" << endl;
+}
+
+TEST_CASE("std::cin takes input", "[stl]") {
+	string name;
+
+	cout << "What is your name?" << endl;
+	// cin >> name; // Hangs up the test when uncommented
+	cout << "Thanks, " << name << endl;
+}
+
 TEST_CASE("vector front gets first element", "[stl]") {
 	vector<int> primes{ 0, 2, 3, 5, 7, 11, 13 };
 
@@ -182,6 +183,7 @@ TEST_CASE("map can be accessed with operator[] and at", "[stl]") {
 	REQUIRE(commander["William Adama"] == "Galactica");
 }
 
+// Demo 2
 TEST_CASE("Iterator example; assign, increment, retrieve", "[stl]") {
 	vector<int> primes{ 0, 2, 3, 5, 7, 11, 13 };
 	auto prime_iterator = primes.begin();
@@ -191,7 +193,6 @@ TEST_CASE("Iterator example; assign, increment, retrieve", "[stl]") {
 	REQUIRE(*prime_iterator == 2);
 }
 
-// Demo 2
 TEST_CASE("Can use iterators to loop over elements", "[stl]") {
 	vector<string> commanders {"Zaphod Beeblebrox", "Jean-Luc Picard", "Han Solo"};
 	auto characters = 0;

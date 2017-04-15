@@ -98,3 +98,16 @@ hook URL and a token.
 4. `git clone` the Matterbot project, input your hook url/token, and post a message with your bot.
 5. If you don't already have a Gitlab account, get one (https://gitlab.com).
 6. Send me your gitlab account ID on Slack.
+
+
+---
+
+# Matterbot
+Over the next two weeks, you're going to build a chatbot in C++!
+
+[See my blog post](https://jlospinoso.github.io/c++/web/rest/mattermost/software/developing/2016/06/14/matterbot.html) for how to
+get started with the framework.
+
+You can begin with "Building an example bot." We'll use Slack as the service (no need for Mattermost).
+
+Just like in real life, you're going to have to read documentation and figure things out!

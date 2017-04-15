@@ -10,3 +10,7 @@ compile:
   override:
     - docker build --rm=false -t jlospinoso/mccwa:latest .
     - docker cp $(docker create jlospinoso/mccwa:latest):/opt/mccwa/dist - > $CIRCLE_ARTIFACTS/mccwa.tar
+
+test:
+  override:
+    - echo "OK"

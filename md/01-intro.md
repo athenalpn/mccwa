@@ -50,7 +50,7 @@ Some Expectation Management
 ==
 C++ is a very, _very_ complicated language.
 
-You are going to learn the very basics. In the next two weeks, I hope for two
+You are going to learn some essentials. In the next two weeks, I hope for two
 things:
 
 1. that you are enabled to learn more C++, and
@@ -70,10 +70,10 @@ cout << &josh << endl;
 ---
 
 # Course Plan
-* *Basics*: Learning the ABC++s (2 days)
-* *Standard Template Library*: STeaL code whenever practicable (3 days)
-* *Resource Management*: C++ is a sharp RAIIzor (2 days)
-* *Lab/Test* (3 days)
+* *Basics* (2 days)
+* *Standard Template Library* (3 days)
+* *Resource Management* (2 days)
+* *Crucible/Test* (3 days)
 
 ---
 

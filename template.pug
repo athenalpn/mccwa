@@ -1,0 +1,12 @@
+doctype html
+html(lang="en")
+    head
+        title Modern C++ for the C-Wielding Aspirant
+        style
+            include build/css/style.css
+        script
+            include build/scripts/remark.js
+    body
+        textarea(id="source")= contents
+        script.
+            remark.create();

@@ -4,21 +4,14 @@
   "description": "Modern C++ for the C-Wielding Aspirant",
   "author": "Josh Lospinoso",
   "license": "AGPL-3.0",
-  "dependencies": {
-    "remark": "7.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "git://gitlab.com/jalospinoso/mccwa.git"
   },
   "devDependencies": {
     "del": "^2.2.2",
-    "fs": "0.0.1-security",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-babel": "^6.1.2",
-    "gulp-browserify": "^0.5.1",
     "gulp-cssimport": "^5.0.0",
-    "gulp-data": "^1.2.1",
     "gulp-flatmap": "^1.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",

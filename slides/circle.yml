@@ -1,0 +1,12 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+
+compile:
+  override:
+    - docker build --rm=false -t jlospinoso/mccwa:latest slides
+    - docker cp $(docker create jlospinoso/mccwa:latest):/opt/mccwa/dist - > $CIRCLE_ARTIFACTS/mccwa.tar

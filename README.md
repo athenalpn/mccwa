@@ -16,13 +16,21 @@ hook URL and a token.
 Software to install before we start:
 
 * ngrok - https://ngrok.com/download
-* Visual Studio 2015 (any version) - https://www.visualstudio.com/vs/community/
+* Visual Studio 2017 (any version) - https://www.visualstudio.com/vs/community/
 * git - https://git-scm.com/download/win
 * (optional) Slack chat - https://slack.com/downloads/windows
 
-Repositories to clone: 
+Repositories to clone:
 
 ```sh
 git clone git@github.com:JLospinoso/mccwa.git
 git clone git@github.com:JLospinoso/matterbot.git
 ```
+
+Slides
+==
+You can build the slides yourself with Gulp, or download them from the CI server:
+
+[![CircleCI](https://circleci.com/gh/JLospinoso/mccwa.svg?style=svg)](https://circleci.com/gh/JLospinoso/mccwa)
+
+Navigate to the _Artifacts_ tab and download `mccwa.tar`.

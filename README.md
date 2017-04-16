@@ -1,6 +1,3 @@
-Modern C++ for the C-Weilding Aspirant
-==
-
 ![MCCWA](https://github.com/JLospinoso/mccwa/raw/master/slides/graphics/MCCWA.png)
 
 Getting set up for the course:

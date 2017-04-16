@@ -8,7 +8,7 @@
 
 using namespace std;
 
-// Demo 1
+// Demo 4
 TEST_CASE("string has length", "[stl]") {
 	string advice("Don't panic");
 	string empty_string;
@@ -185,7 +185,7 @@ TEST_CASE("map can be accessed with operator[] and at", "[stl]") {
 	REQUIRE(commander["William Adama"] == "Galactica");
 }
 
-// Demo 2
+// Demo 5
 TEST_CASE("Iterator example; assign, increment, retrieve", "[stl]") {
 	vector<int> primes{ 0, 2, 3, 5, 7, 11, 13 };
 

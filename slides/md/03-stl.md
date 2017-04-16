@@ -186,6 +186,11 @@ Note that `c_str()` is *null terminated* while `data()` is not.
 
 ```cpp
 bind(demo, "stl", 4);
+
+
+Matterbot Challenge
+==
+Once you've reviewed Demo 4, implement a Calculator command. Start with addition, subtraction, multiplication, and division.
 ```
 
 ---
@@ -468,6 +473,9 @@ _note_: `empty()` returns `true` if the `map` has no elements.
 bind(demo, "stl", 5);
 ```
 
+Matterbot Challenge
+==
+Once you've reviewed Demo 5, implement a TODO command. A user should be able to tell your bot to remember something, get her to-do list, and check off items.
 ---
 # STL Iterators
 

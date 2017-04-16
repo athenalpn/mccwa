@@ -114,6 +114,10 @@ TEST_CASE("given-when-then", "[test]") {
 
 ```cpp
 bind(demo, "basics", 1);
+
+Matterbot Challenge
+==
+Once you've reviewed Demo 1, implement a new bot command that returns your favorite movie quote.
 ```
 
 ---
@@ -242,6 +246,10 @@ _Note:_ consider whether you must operate on `const` arguments e.g. from an exte
 ```cpp
 bind(demo, "basics", 2);
 ```
+
+Matterbot Challenge
+==
+Once you've reviewed Demo 2, implement a new bot command that takes two Points, computes the Euclidian distance between them, and returns it.
 
 ---
 
@@ -720,7 +728,7 @@ struct Patrol : public StationaryMission, public NonstationaryMission { };
 
 ```cpp
 struct DumbLogger {
-  public info(const char[] x) {
+  public info(const char[] x) {r
     printf("info: %s", x);
   }
 }
@@ -845,4 +853,9 @@ There is no universally correct approach.
 
 ```cpp
 bind(demo, "basics", 3);
+
+
+Matterbot Challenge
+==
+Once you've reviewed Demo 3, implement a command that allows users to feed a CyberRanger and send it on patrol. Kinda like a Tomagachi.
 ```

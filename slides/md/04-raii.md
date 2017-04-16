@@ -387,4 +387,9 @@ void example() {
 
 ```cpp
 std::bind(demo, "raii", 7);
+
+
+Matterbot Challenge
+==
+Implement an MD5 calculator command. I'll give you a big head start, don't worry!
 ```

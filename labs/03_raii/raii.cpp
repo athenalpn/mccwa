@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Demo 1
+// Demo 7
 TEST_CASE("Can cleanup with gotos", "[raii]") {
 	auto file = fopen("tmp.txt", "w");
 	if(!file) {
